@@ -1,4 +1,25 @@
- var Person = function(name){
+var Person = {
+    personName:"ahmed",
+    sayName: function(){
+        console.log(this.personName);
+    },
+    sayJob:function(){
+        console.log(this.personJob);
+    }
+}
+
+var Musician =Object.create(Person);
+
+Musician.getInstruments=function(){
+    console.log("plays..."+this.personInstrument);
+}
+
+var mina= Object.create(Musician);
+mina.personName= "Mina";
+mina.personInstrument= "Drums";
+
+/*
+function(name){
     this.personName = name;
  };
 
@@ -28,7 +49,7 @@ function inherits(ctor, superCtor) {
   });
 };
 
-var Musician = function(name,instrument){
+= function(name,instrument){
     Musician.super_.call(this,name);
     this.musicianInstrument = instrument;
 }
@@ -42,3 +63,5 @@ Musician.prototype.getInstruments=function(){
 var dina = new Musician("Dina's Name","will play music by folk");
 dina.sayName();
 dina.getInstruments();
+
+*/
