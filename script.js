@@ -28,11 +28,17 @@ function inherits(ctor, superCtor) {
   });
 };
 
-var Friend = function(name){
-    Friend.super_.call(this,name);
+var Musician = function(name,instrument){
+    Musician.super_.call(this,name);
+    this.musicianInstrument = instrument;
 }
 
-inherits(Friend,Person);
+inherits(Musician,Person);
 
-var dina = new Friend("Dina's Name");
+Musician.prototype.getInstruments=function(){
+    console.log(this.musicianInstrument);
+};
+
+var dina = new Musician("Dina's Name","will play music by folk");
 dina.sayName();
+dina.getInstruments();
