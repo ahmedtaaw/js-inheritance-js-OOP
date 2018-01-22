@@ -15,3 +15,24 @@ Person.prototype.shoutName=function(){
  ahmed.sayName();
  mina.shoutName();
 
+ //inheritance
+function inherits(ctor, superCtor) {
+  ctor.super_ = superCtor;
+  ctor.prototype = Object.create(superCtor.prototype, {
+    constructor: {
+      value: ctor,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+};
+
+var Friend = function(name){
+    Person.call(this,name);
+}
+
+inherits(Friend,Person);
+
+var dina = new Friend("Dina's Name");
+dina.sayName();
