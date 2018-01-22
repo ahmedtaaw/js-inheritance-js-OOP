@@ -29,7 +29,7 @@ function inherits(ctor, superCtor) {
 };
 
 var Friend = function(name){
-    Person.call(this,name);
+    Friend.super_.call(this,name);
 }
 
 inherits(Friend,Person);
